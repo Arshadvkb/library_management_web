@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Navbar from '../components/Navbar'
+import { AppContext } from '../context/AppContext'
 
 
 const Home_page = () => {
+    const {backendurl,setIsLoggedIn}=useContext(AppContext)
   const [books,setBooks]=useState([])
 const viewBooks=async()=>{
   try { 
-    const res= await fetch('http://localhost:8000/api/book/view-books')
+    const res= await fetch( backendurl+'/api/book/view-books')
     const data= await res.json()
     
     setBooks(data.books)

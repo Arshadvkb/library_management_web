@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Login_page = () => {
-
+const navigate=useNavigate()
   const {backendurl,setIsLoggedIn}=useContext(AppContext)
  console.log(backendurl);
- 
+  
    const [state,setState]= useState('sign up');
    const [name,setName]= useState('');
    const [email,setEmail]= useState('');
@@ -18,6 +19,8 @@ const Login_page = () => {
       if(state==='sign up'){
        const {data}= await axios.post(backendurl+'/api/auth/register',{name,email,phone,password,role:'admin'})
       }else{ 
+        const {data}= await axios.post(backendurl+'/api/auth/login',{email,password})
+        navigate('/',{replace:true})
         
       }
       
