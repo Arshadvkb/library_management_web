@@ -1,12 +1,14 @@
 import { createContext, useState } from "react";
 
-export const AppContext=createContext
+export const AppContext=createContext(null)
 
 
  export const AppContextProvider=(props)=>{
-    const backendurl=import.meta.env.VITE_BACKED_URL
+    const backendurl=import.meta.env.VITE_BACKEND_URL
+   
+    
     const [isLoggedIn,setIsLoggedIn]=useState(false)
-    const [userData,setuserData]=useState(false)
+    const [userData,setuserData]=useState(null)
     const value={
         backendurl,
         isLoggedIn,
@@ -14,6 +16,8 @@ export const AppContext=createContext
         userData,
         setuserData
     }
+    console.log(value);
+    
     return(
        <AppContext.Provider value={value}>
         {props.children}
