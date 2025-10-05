@@ -20,8 +20,11 @@ const navigate=useNavigate()
        const {data}= await axios.post(backendurl+'/api/auth/register',{name,email,phone,password,role:'admin'})
       }else{ 
         const {data}= await axios.post(backendurl+'/api/auth/login',{email,password})
-        navigate('/',{replace:true})
-        
+        console.log(data);
+        const {success}=data;
+        if(success===true){
+        navigate('/home',{replace:true})
+        }
       }
       
     } catch (error) {

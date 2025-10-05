@@ -23,16 +23,18 @@ const viewBooks=async()=>{
 viewBooks()
   return (
     
-    <div>
+    <div >
       <Navbar/>
       {books.length > 0 ? (
           <ul>
             {books.map((book, index) => (
               <li key={index}> 
-              <div className="ml-2">
+            
+              <div className="ml-2 h-20 w-5xl ">
                 <h2>{book.title}</h2>
                 <p>Author: {book.author}</p>
-                  </div>
+                </div>
+          
               </li>
             
             ))}
