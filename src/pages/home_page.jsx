@@ -18,10 +18,10 @@ const Home_page = () => {
   return (
     <div>
       <Navbar />
-
+<div className="min-h-screen  bg-gradient-to-br from-purple-300 to-blue-600">
       <h1 className="text-center font-semibold text-xl">Available book</h1>
       {books.length > 0 ? (
-        <ul className="flex flex-wrap h-96 gap-6 justify-center items-center">
+        <ul className="flex flex-wrap gap-6 justify-center items-center ">
           {books.map((book, index) => (
             <li key={index}>
               <div className="ml-2 h-auto lg:w-200 sm:w-100  rounded-xl border-1 bg-blue-400 p-2 ">
@@ -37,6 +37,7 @@ const Home_page = () => {
       ) : (
         <p>No books found.</p>
       )}
+      </div>
     </div>
   );
 };
