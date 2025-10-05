@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { AppContext } from "../context/AppContext";
 
 const Home_page = () => {
-  const { backendurl, setIsLoggedIn } = useContext(AppContext);
+  const { backendurl} = useContext(AppContext);
   const [books, setBooks] = useState([]);
   const viewBooks = async () => {
     try {
@@ -21,7 +21,6 @@ const Home_page = () => {
 
       <h1 className="text-center font-semibold text-xl">Available book</h1>
       {books.length > 0 ? (
-      
         <ul className="flex flex-wrap h-96 gap-6 justify-center items-center">
           {books.map((book, index) => (
             <li key={index}>
@@ -30,11 +29,11 @@ const Home_page = () => {
                 <p>Author: {book.author}</p>
                 <p>ISBN:{book.ISBN}</p>
                 <p>Published Date:{book.publishedDate}</p>
+                <p>Available count:{book.count}</p>
               </div>
             </li>
           ))}
         </ul>
-    
       ) : (
         <p>No books found.</p>
       )}
