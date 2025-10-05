@@ -24,7 +24,7 @@ const Home_page = () => {
         <ul className="flex flex-wrap h-96 gap-6 justify-center items-center">
           {books.map((book, index) => (
             <li key={index}>
-              <div className="ml-2 h-auto w-auto border-2 bg-blue-400 p-2 ">
+              <div className="ml-2 h-auto w-auto rounded-xl border-1 bg-blue-400 p-2 ">
                 <h2>{book.title}</h2>
                 <p>Author: {book.author}</p>
                 <p>ISBN:{book.ISBN}</p>

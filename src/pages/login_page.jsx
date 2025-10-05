@@ -93,12 +93,12 @@ const Login_page = () => {
         <button className="bg-blue-300 rounded-2xl p-2">{state}</button><br />
         {state === "sign up" ? (
         <p>
-          already have an account{" "}
+          already have an account?{" "}
           <span className="text-blue-800 underline" onClick={() => setState("Login")}>login</span >
         </p>
       ) : (
         <p>
-          Dont have an account{" "}
+          Dont have an account?{" "}
           <span className="text-blue-800 underline"  onClick={() => setState("sign up")}>register</span>
         </p>
       )}
