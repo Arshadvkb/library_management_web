@@ -41,40 +41,40 @@ const Add_book = () => {
             <input
             onChange={(e)=>setTitle(e.target.value)}
             value={title}
-              className="bg-blue-200 p-2 rounded-2xl"
+              className="bg-blue-300 p-2 rounded-2xl"
               type="text"
               placeholder="Book Title.."
             />
             <input
              onChange={(e)=>setAuthor(e.target.value)}
             value={author}
-              className="bg-blue-200 p-2 rounded-2xl"
+              className="bg-blue-300 p-2 rounded-2xl"
               type="text"
               placeholder="Author"
             />
             <input
              onChange={(e)=>setDate(e.target.value)}
             value={publishedDate}
-              className="bg-blue-200 p-2 rounded-2xl"
+              className="bg-blue-300 p-2 rounded-2xl"
               type="date"
               placeholder="Published Date"
             />
             <input
              onChange={(e)=>setIsbn(e.target.value)}
             value={ISBN}
-              className="bg-blue-200 p-2 rounded-2xl"
+              className="bg-blue-300 p-2 rounded-2xl"
               type="number"
               placeholder="ISBN"
             />
             <input
              onChange={(e)=>setCount(e.target.value)}
             value={count}
-              className="bg-blue-200 p-2 rounded-2xl"
+              className="bg-blue-300 p-2 rounded-2xl"
               type="number"
               placeholder="count"
             />
             <br />
-            <button className="bg-blue-200 p-2 rounded-2xl">Add Book</button>
+            <button className="bg-blue-300 p-2 rounded-2xl">Add Book</button>
           </div>
         </form>
       </div>
