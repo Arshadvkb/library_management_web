@@ -39,7 +39,7 @@ const Login_page = () => {
         if (success === true ) {
         if( user.role==="admin"){
           setIsLoggedIn(true);
-          navigate("/home", { replace: true });
+          navigate("/admin/home", { replace: true });
           successlogin()
         }
         else{
