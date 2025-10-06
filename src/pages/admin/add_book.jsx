@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import axios from "axios";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
+import { toast } from "react-toastify";
 
 const Add_book = () => {
     const {backendurl}=useContext(AppContext)
@@ -10,6 +11,9 @@ const Add_book = () => {
   const [publishedDate, setDate] = useState("");
   const [ISBN, setIsbn] = useState("");
   const [count, setCount] = useState("");
+  
+  const bookadded=()=> toast('book added successfuly')
+
   const submitHandler=async(e)=>{
     e.preventDefault()
     const {data}=await axios.post(backendurl +'/api/book/add-book' ,{
@@ -19,6 +23,11 @@ const Add_book = () => {
         ISBN,
         count
     })
+    const {success}=data
+    if(success)
+    {
+      bookadded()
+    }
     console.log(data);
     
 

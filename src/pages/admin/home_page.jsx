@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import Navbar from "../components/Navbar";
-import { AppContext } from "../context/AppContext";
+import Navbar from "../../components/Navbar";
+import { AppContext } from "../../context/AppContext";
 
 const Home_page = () => {
   const { backendurl} = useContext(AppContext);

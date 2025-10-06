@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login_page = () => {
   const navigate = useNavigate();
@@ -13,6 +14,8 @@ const Login_page = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState();
   const [password, setPassword] = useState("");
+
+  const successlogin=()=> toast("Logged in successfuly")
 
   const submitHandler = async (e) => {
     try {
@@ -31,11 +34,19 @@ const Login_page = () => {
           password,
         });
         console.log(data);
-        const { success } = data;
-        if (success === true) {
+        const { success,user } = data;
+        
+        if (success === true ) {
+        if( user.role==="admin"){
           setIsLoggedIn(true);
           navigate("/home", { replace: true });
+          successlogin()
         }
+        else{
+           navigate("/user/home", { replace: true });
+           successlogin()
+        }
+      }
       }
     } catch (error) {
       console.log("error:" + error);
