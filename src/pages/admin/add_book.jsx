@@ -11,8 +11,15 @@ const Add_book = () => {
   const [publishedDate, setDate] = useState("");
   const [ISBN, setIsbn] = useState("");
   const [count, setCount] = useState("");
-  
+  const[file,setFile]=useState();
+
   const bookadded=()=> toast('book added successfuly')
+
+const handleFileChange = (e) => {
+  console.log(e.target.files[0]);
+  
+    setFile(e.target.files[0]);
+  };
 
   const submitHandler=async(e)=>{
     e.preventDefault()
@@ -21,7 +28,8 @@ const Add_book = () => {
         author,
         publishedDate,
         ISBN,
-        count
+        count,
+        file
     })
     const {success}=data
     if(success)
@@ -38,6 +46,7 @@ const Add_book = () => {
       <div className="flex items-center justify-center min-h-screen  bg-gradient-to-br from-purple-300 to-blue-600">
         <form  onSubmit={submitHandler}>
           <div className="flex flex-col flex-wrap gap-2 bg-blue-400 p-4 rounded-xl m-4">
+            <input type="file" accept="image/*,video/*" onChange={handleFileChange} />
             <input
             onChange={(e)=>setTitle(e.target.value)}
             value={title}
