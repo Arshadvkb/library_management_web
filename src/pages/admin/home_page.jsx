@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { AppContext } from "../../context/AppContext";
 
@@ -13,12 +13,17 @@ const Home_page = () => {
       setBooks(data.books);
       console.log(books);
     } catch (error) {}
-  };
-  viewBooks();
+  }
+
+  useEffect(() => {
+    viewBooks();
+  }, []);
+
+
   return (
     <div>
       <Navbar />
-<div className="min-h-screen  bg-gradient-to-br from-purple-300 to-blue-600">
+<div className="min-h-screen  bg-gradient-to-br from-purple-300 to-blue-600 p-4">
       <h1 className="text-center font-semibold text-xl">Available book</h1>
       {books.length > 0 ? (
         <ul className="flex flex-wrap gap-6 justify-center items-center ">
