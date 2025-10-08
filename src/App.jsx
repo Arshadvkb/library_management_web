@@ -6,6 +6,7 @@ import Add_book from "./pages/admin/add_book"
 import User_home_page from "./pages/user/user_home_page";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Edit_book from "./pages/admin/Edit_book";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/admin/home" element={<Home_page />} />
         <Route path="/user/home" element={<User_home_page/>} />
         <Route path="/add-book" element={<Add_book/>} />
+        <Route path="/edit-book" element={<Edit_book/>} />
       </Routes>
       <ToastContainer
       position="top-right"
