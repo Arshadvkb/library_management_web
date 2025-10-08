@@ -26,7 +26,7 @@ const Login_page = () => {
           email,
           phone,
           password,
-          role: "admin",
+          role: "user",
         });
       } else {
         const { data } = await axios.post(backendurl + "/api/auth/login", {
