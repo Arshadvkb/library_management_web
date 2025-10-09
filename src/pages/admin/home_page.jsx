@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import { AppContext } from "../../context/AppContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Home_page = () => {
   const { backendurl } = useContext(AppContext);
@@ -12,6 +13,8 @@ const Home_page = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSrc, setModalSrc] = useState(null);
   const [modalAlt, setModalAlt] = useState("");
+
+  const deletToast=()=> toast("book deleted successfuly")
 const navigate=useNavigate()
   const viewBooks = async () => {
     setLoading(true);
@@ -41,8 +44,11 @@ const navigate=useNavigate()
     );
     if (!ok) return;
     try {
-      await axios.delete(backendurl + `/api/book/delete-book/${id}`);
-      // remove locally for immediate feedback
+      const data=await axios.delete(backendurl + `/api/book/delete-book/${id}`);
+      const {success}=data.data
+     if(success){ deletToast()}
+      
+      
       setBooks((prev) => prev.filter((b) => b._id !== id));
     } catch (err) {
       console.error(err);
