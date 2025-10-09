@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
-import { useParams } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 
 const Edit_book = (Book) => {
- const {title}=Book
-  console.log( title + "book from edit page");
-  
+const location = useLocation();
+  const [book, setBook] = useState(null);
+
+  useEffect(() => {
+    if (location.state?.Book) {
+      setBook(location.state.Book);
+      console.log(book+"from edit page");
+      
+    
+    } else {
+     
+      console.error("No book data received");
+    }
+  }, [location.state]);
   return (
     <div>
       <Navbar />

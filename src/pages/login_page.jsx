@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const Login_page = () => {
   const navigate = useNavigate();
-  const { backendurl, setIsLoggedIn } = useContext(AppContext);
+  const { backendurl, setIsLoggedIn ,setuserData} = useContext(AppContext);
   console.log(backendurl);
 
   const [state, setState] = useState("sign up");
@@ -37,6 +37,7 @@ const Login_page = () => {
         const { success,user } = data;
         
         if (success === true ) {
+          setuserData(user)
         if( user.role==="admin"){
           setIsLoggedIn(true);
           navigate("/admin/home", { replace: true });

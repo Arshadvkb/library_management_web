@@ -35,7 +35,6 @@ const navigate=useNavigate()
 
   useEffect(() => {
     viewBooks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deletefunction = async (id) => {
@@ -58,7 +57,7 @@ const navigate=useNavigate()
   const editfunction=(Book,e)=>{
     console.log(Book);
     
- navigate("/edit-book",{Book})
+ navigate("/edit-book",{ state: { Book } })
 
   }
 
