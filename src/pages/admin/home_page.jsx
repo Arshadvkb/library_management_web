@@ -55,8 +55,10 @@ const navigate=useNavigate()
       alert("Failed to delete the book. Please try again.");
     }
   };
-  const editfunction=(id,e)=>{
- navigate("/edit-book",{state:{id:id}})
+  const editfunction=(Book,e)=>{
+    console.log(Book);
+    
+ navigate("/edit-book",{Book})
 
   }
 
@@ -125,7 +127,7 @@ const navigate=useNavigate()
                           Available: <strong>{book.count ?? 0}</strong>
                         </span>
                         <button
-                          onClick={() => editfunction(book._id)}
+                          onClick={() => editfunction(book)}
                           className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 focus:outline-none"
                         >
                           edit
