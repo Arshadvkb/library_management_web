@@ -32,14 +32,21 @@ const Login_page = () => {
     formData.append("file", file);
     formData.append("role", "user");
       if (state === "sign up") {
-        const { registerData } = await axios.post(backendurl + "/api/auth/register",formData);
+        const {data} = await axios.post(backendurl + "/api/auth/register",formData);
+        console.log(data);
+        
+        const {success,message}= data
+        if (success) {
+          setState("Login")
+          
+        }
       } else {
-        const { logindata } = await axios.post(backendurl + "/api/auth/login", {
+        const { data } = await axios.post(backendurl + "/api/auth/login", {
           email,
           password,
         });
-        console.log(logindata);
-        const { success,user } = logindata;
+        console.log(data);
+        const { success,user } = data;
         
         if (success === true ) {
           setuserData(user)
