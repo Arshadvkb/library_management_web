@@ -66,7 +66,7 @@ const navigate=useNavigate()
       <Navbar />
 
       <main className="max-w-6xl mx-auto p-6">
-        <header className="flex items-center justify-between mb-6">
+        <header className="flex items-center justify-between mb-6 mt-6">
           <h1 className="text-2xl font-semibold text-gray-800">
             Available Books
           </h1>

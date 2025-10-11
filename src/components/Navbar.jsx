@@ -15,7 +15,7 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="bg-blue-400 h-10 w-auto flex justify-between p-4">
+    <div className="bg-blue-400 h-10 min-w-screen mb-5 flex justify-between pb-5 p-4 fixed z-10">
       <h1>library</h1>
 
       <ul className="flex justify-between pl-5 gap-3">
