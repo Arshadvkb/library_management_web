@@ -9,10 +9,12 @@ import "react-toastify/dist/ReactToastify.css";
 import Edit_book from "./pages/admin/Edit_book";
 import View_book from "./pages/admin/View_book";
 import Admin_home from "./pages/admin/Admin_home";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <div>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Login_page />} />
         <Route path="/admin/home" element={<Admin_home/>} />

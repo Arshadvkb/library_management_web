@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar'
 const Admin_home = () => {
   return (
     <div>
-      <Navbar/>
+ 
 
     </div>
   )
