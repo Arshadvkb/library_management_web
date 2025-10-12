@@ -54,12 +54,11 @@ const navigate=useNavigate()
       alert("Failed to delete the book. Please try again.");
     }
   };
-  const editfunction=(Book,e)=>{
-    console.log(Book);
-    
- navigate("/edit-book",{ state: { Book } })
+  const editfunction = (book) => {
+    console.log("navigating to edit with book:", book);
+    navigate("/edit-book", { state: { book } });
+  };
 
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-blue-100 to-blue-200">
@@ -123,7 +122,8 @@ const navigate=useNavigate()
 
                       <div className="mt-4 flex items-center justify-between">
                         <span className="text-sm text-gray-700">
-                          Available: <strong>{book.count ?? 0}</strong>
+                          Available:{" "}
+                          <strong>{book.available_count ?? 0}</strong>
                         </span>
                         <button
                           onClick={() => editfunction(book)}

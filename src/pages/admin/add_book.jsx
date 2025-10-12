@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import axios from "axios";
 import { AppContext } from "../../context/AppContext";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Add_book = () => {
   const { backendurl } = useContext(AppContext);
@@ -13,6 +14,8 @@ const Add_book = () => {
   const [count, setCount] = useState("");
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const navigate=useNavigate()
 
   const bookadded = () => toast("book added successfuly");
   const bookaddfailed = () => toast("Failed to add book");
@@ -31,7 +34,7 @@ const Add_book = () => {
     e.preventDefault();
 
     setLoading(true);
-    const formData = new FormData();  // ← Key: Use FormData for multipart
+    const formData = new FormData(); 
     formData.append("title", title);
     formData.append("author", author);
     formData.append("publishedDate", publishedDate);
@@ -43,6 +46,8 @@ const Add_book = () => {
     const { success } = data;
     if (success) {
       bookadded();
+      navigate("/admin/viewbook",{replace:true});
+
     }
     else{
       bookaddfailed()
