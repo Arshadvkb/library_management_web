@@ -20,7 +20,7 @@ const Navbar = () => {
 
       <ul className="flex justify-between pl-5 gap-3">
         <li>
-          <a href="/admin/home">home</a>
+          <a href="/admin/viewbook">viewBooks</a>
         </li>
         <li>
           <a href="/add-book">add book</a>

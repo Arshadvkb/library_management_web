@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Home_page = () => {
+const View_book = () => {
   const { backendurl } = useContext(AppContext);
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -176,4 +176,4 @@ const navigate=useNavigate()
   );
 };
 
-export default Home_page;
+export default View_book;
