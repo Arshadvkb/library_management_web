@@ -63,7 +63,7 @@ const navigate=useNavigate()
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-blue-100 to-blue-200">
 
-
+<Navbar/>
       <main className="max-w-6xl mx-auto p-6">
         <header className="flex items-center justify-between mb-6 mt-6">
           <h1 className="text-2xl font-semibold text-gray-800">

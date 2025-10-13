@@ -14,7 +14,7 @@ import Navbar from "./components/Navbar";
 const App = () => {
   return (
     <div>
-      <Navbar/>
+      
       <Routes>
         <Route path="/" element={<Login_page />} />
         <Route path="/admin/home" element={<Admin_home/>} />

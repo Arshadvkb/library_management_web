@@ -94,7 +94,7 @@ const Edit_book = () => {
 
   return (
     <div>
-     
+     <Navbar/>
       <div className="flex items-center justify-center min-h-screen  bg-gradient-to-br from-purple-300 to-blue-600">
         <form onSubmit={submissionHandler}>
           <div className="flex flex-col flex-wrap gap-2 bg-blue-400 p-4 rounded-xl m-4">
