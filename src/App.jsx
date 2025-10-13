@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
-
 import Login_page from "./pages/login_page";
 import Add_book from "./pages/admin/add_book";
 import User_home_page from "./pages/user/user_home_page";
@@ -9,19 +8,60 @@ import "react-toastify/dist/ReactToastify.css";
 import Edit_book from "./pages/admin/Edit_book";
 import View_book from "./pages/admin/View_book";
 import Admin_home from "./pages/admin/Admin_home";
-import Navbar from "./components/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
     <div>
-      
       <Routes>
-        <Route path="/" element={<Login_page />} />
-        <Route path="/admin/home" element={<Admin_home/>} />
-        <Route path="/admin/viewbook" element={<View_book/>} />
-        <Route path="/user/home" element={<User_home_page />} />
-        <Route path="/add-book" element={<Add_book />} />
-        <Route path="/edit-book" element={<Edit_book />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute requireAuth={false}>
+              <Login_page />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/home"
+          element={
+            <ProtectedRoute>
+              <Admin_home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/viewbook"
+          element={
+            <ProtectedRoute>
+              <View_book />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/user/home"
+          element={
+            <ProtectedRoute>
+              <User_home_page />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add-book"
+          element={
+            <ProtectedRoute>
+              <Add_book />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/edit-book"
+          element={
+            <ProtectedRoute>
+              <Edit_book />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <ToastContainer
         position="top-right"
