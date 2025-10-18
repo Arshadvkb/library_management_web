@@ -61,16 +61,21 @@ const navigate=useNavigate()
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-blue-100 to-blue-200">
-
-<Navbar/>
-      <main className="max-w-6xl mx-auto p-6">
-        <header className="flex items-center justify-between mb-6 mt-6">
-          <h1 className="text-2xl font-semibold text-gray-800">
-            Available Books
-          </h1>
-          <div className="text-sm text-gray-600">Total: {books.length}</div>
-        </header>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <Navbar />
+      
+      <main className="pt-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <header className="flex items-center justify-between mb-8">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Book Management</h1>
+              <p className="text-gray-600">Manage and view all books in the library</p>
+            </div>
+            <div className="bg-white rounded-lg px-4 py-2 shadow-sm border border-gray-200">
+              <span className="text-sm text-gray-600">Total: </span>
+              <span className="text-lg font-semibold text-blue-600">{books.length}</span>
+            </div>
+          </header>
 
         <section>
           {loading ? (
@@ -145,6 +150,7 @@ const navigate=useNavigate()
             </ul>
           )}
         </section>
+        </div>
       </main>
 
       {/* Image modal / lightbox */}

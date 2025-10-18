@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useContext } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Login_page from "./pages/login_page";
 import Add_book from "./pages/admin/add_book";
 import User_home_page from "./pages/user/user_home_page";
@@ -8,11 +8,27 @@ import "react-toastify/dist/ReactToastify.css";
 import Edit_book from "./pages/admin/Edit_book";
 import View_book from "./pages/admin/View_book";
 import Admin_home from "./pages/admin/Admin_home";
-import ProtectedRoute from "./components/ProtectedRoute";
+import { AppContext } from "./context/AppContext";
 
 const App = () => {
+  const { isLoggedIn, userData } = useContext(AppContext);
+
+  // Protected Route Component
+  const ProtectedRoute = ({ children, requireAuth = true }) => {
+    if (requireAuth && !isLoggedIn) {
+      return <Navigate to="/" replace />;
+    }
+    if (!requireAuth && isLoggedIn) {
+      if (userData?.role === 'admin') {
+        return <Navigate to="/admin/home" replace />;
+      }
+      return <Navigate to="/user/home" replace />;
+    }
+    return children;
+  };
+
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Routes>
         <Route
           path="/"
@@ -65,7 +81,7 @@ const App = () => {
       </Routes>
       <ToastContainer
         position="top-right"
-        autoClose={500000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -74,6 +90,7 @@ const App = () => {
         draggable
         pauseOnHover
         theme="light"
+        className="mt-16"
       />
     </div>
   );
